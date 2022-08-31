@@ -1,0 +1,45 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.5'
+    id 'java'
+}
+
+version = '1.0.2'
+group = 'org.gradle.samples'
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+bootJar {
+    archiveFileName = "hiking-app.jar"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "io.springfox:springfox-swagger2:2.9.2"
+    implementation "io.springfox:springfox-swagger-ui:2.8.0"
+    implementation "org.apache.tomcat:tomcat-dbcp:9.0.1"
+    implementation "org.springframework:spring-orm:5.1.6.RELEASE"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:*"
+    implementation "io.swagger:swagger-annotations:1.5.22"
+    implementation "org.springframework.boot:spring-boot-starter-actuator:*"
+    implementation "org.springframework.boot:spring-boot-devtools:*"
+    implementation "com.h2database:h2:*"
+    implementation "org.postgresql:postgresql:*"
+    implementation "org.springframework.boot:spring-boot-test:*"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:*"
+    implementation "org.springframework.boot:spring-boot-starter-web:*"
+    implementation "org.springframework.boot:spring-boot-actuator:2.3.1.RELEASE"
+    implementation "org.springframework:spring-tx:5.2.7.RELEASE"
+    implementation "org.projectlombok:lombok:1.18.20"
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    implementation "org.flywaydb:flyway-core:*"
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
+}
